@@ -1,3 +1,14 @@
+# Resumes
+
+| Resume | Output PDF | Source |
+| --- | --- | --- |
+| Samyuktha Ajay (MBA HR) | `Samyuktha_Ajay_Resume.pdf` | `samyuktha/` — see [samyuktha/README.md](samyuktha/README.md) |
+| Prahadhesvaryaa K S (MBA) | `resume.pdf` | `resume_content.py` + `build_resume.py` |
+
+`RESUME 2205.pdf` is the original Canva export of Samyuktha's resume, kept for reference.
+
+---
+
 # Resume — Prahadhesvaryaa K S
 
 `resume.pdf` is the current resume (single page, A4).
