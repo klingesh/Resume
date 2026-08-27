@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Samyuktha Ajay - Resume</title>
+<style>
+  /* ---------------------------------------------------------------- page */
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --navy:      #2F3E50;   /* section headings, name */
+    --subhead:   #2E3B49;   /* bold entry titles */
+    --body:      #4E545C;   /* body copy */
+    --header-bg: #A5A5A5;
+    --side-bg:   #ECE9E2;
+    --divider:   #3A3A3A;
+
+    --side-w:    290px;
+    --page-w:    794px;
+    --page-h:    1123px;
+
+    --body-size: 14.5px;
+    --body-lh:   19px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+
+  body {
+    font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+    color: var(--body);
+    -webkit-font-smoothing: antialiased;
+    /* keep text ATS-friendly: no fi/ffi ligatures in the extracted text layer */
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "clig" 0;
+    /* make sure the grey header band and beige sidebar survive printing */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    position: relative;
+    width: var(--page-w);
+    height: var(--page-h);
+    overflow: hidden;
+    background: #fff;
+  }
+
+  /* -------------------------------------------------------------- header */
+  .header {
+    position: absolute;
+    top: 0; left: 0;
+    width: var(--page-w);
+    height: 134px;
+    background: var(--header-bg);
+  }
+  .name {
+    position: absolute;
+    left: 241px; top: 42px;
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .role {
+    position: absolute;
+    left: 245px; top: 84px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+    color: #45505C;
+    line-height: 1;
+  }
+  .photo {
+    position: absolute;
+    left: 15px; top: 21px;
+    width: 195px; height: 195px;
+    background-image: url('assets/photo.png');
+    background-size: 195px 195px;
+    background-repeat: no-repeat;
+    z-index: 2;
+  }
+
+  /* ------------------------------------------------------------- sidebar */
+  .sidebar {
+    position: absolute;
+    left: 0; top: 134px;
+    width: var(--side-w);
+    height: calc(var(--page-h) - 134px);
+    background: var(--side-bg);
+    padding: 118px 20px 0 33px;
+  }
+  .divider {
+    position: absolute;
+    left: var(--side-w); top: 134px;
+    width: 1px;
+    height: 950px;
+    background: var(--divider);
+  }
+
+  .side-head {
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    color: var(--navy);
+    line-height: 1.22;
+    margin: 0 0 12px;
+  }
+  .side-block { margin-bottom: 24px; }
+
+  /* contact rows */
+  .contact-row {
+    position: relative;
+    padding-left: 34px;
+    font-size: var(--body-size);
+    line-height: 19px;
+    margin-bottom: 9px;
+    color: var(--body);
+  }
+  .contact-row .ico {
+    position: absolute;
+    left: 0; top: 0;
+    width: 27px; height: 27px;
+    margin-top: -4px;
+    background-repeat: no-repeat;
+    background-size: 27px 27px;
+  }
+  .ico.phone    { background-image: url('assets/icon-phone.png'); }
+  .ico.mail     { background-image: url('assets/icon-mail.png'); }
+  .ico.linkedin { background-image: url('assets/icon-linkedin.png'); }
+  .ico.pin      { background-image: url('assets/icon-pin.png'); }
+  .contact-row.link { word-break: break-all; line-height: 18px; }
+
+  /* -------------------------------------------------------- right column */
+  .main {
+    position: absolute;
+    left: var(--side-w); top: 134px;
+    width: calc(var(--page-w) - var(--side-w));
+    padding: 30px 36px 0 22px;
+  }
+  .sec-head {
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    color: var(--navy);
+    line-height: 1.2;
+    margin: 0 0 7px;
+  }
+  .section { margin-bottom: 12px; }
+
+  p, ul { margin: 0; padding: 0; }
+  .profile-text {
+    font-size: var(--body-size);
+    line-height: var(--body-lh);
+    text-align: justify;
+    padding: 0 2px 0 12px;
+  }
+
+  /* bullet lists */
+  ul.bullets { list-style: none; padding-left: 12px; }
+  ul.side-list { padding-left: 0; }
+  ul.side-list li { padding-left: 20px; }
+  ul.bullets li {
+    position: relative;
+    padding-left: 18px;
+    font-size: var(--body-size);
+    line-height: var(--body-lh);
+    margin-bottom: 2px;
+  }
+  ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 2px; top: 7.5px;
+    width: 4.5px; height: 4.5px;
+    border-radius: 50%;
+    background: #4E545C;
+  }
+
+  /* education / internship entries */
+  .entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 2px 0 14px;
+  }
+  .entry .title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--subhead);
+    line-height: 19px;
+  }
+  .entry .sub {
+    font-size: var(--body-size);
+    font-weight: 400;
+    line-height: 19px;
+    padding-left: 0;
+  }
+  .entry .when {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--subhead);
+    line-height: 19px;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .edu-item { margin-bottom: 7px; }
+  .edu-item .sub-line { padding: 0 2px 0 14px; font-size: var(--body-size); line-height: 19px; }
+
+  .intern-entry { margin-bottom: 6px; }
+  .intern-entry ul.bullets { margin-top: 3px; }
+  .intern-entry .head-line { padding-left: 20px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ===================================================== header band -->
+  <div class="header"></div>
+  <div class="name">SAMYUKTHA AJAY</div>
+  <div class="role">MBA HR</div>
+  <div class="photo"></div>
+
+  <!-- ========================================================= sidebar -->
+  <div class="sidebar">
+
+    <div class="side-block">
+      <div class="side-head">CONTACT</div>
+      <div class="contact-row"><span class="ico phone"></span>+91 7358740821</div>
+      <div class="contact-row"><span class="ico mail"></span>samyukthaajay284@gmail.com</div>
+      <div class="contact-row link"><span class="ico linkedin"></span>https://www.linkedin.com/in/samyuktha-ajay-30351b292/</div>
+      <div class="contact-row"><span class="ico pin"></span>Chennai</div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-head">TECHNICAL<br>SKILLS</div>
+      <ul class="bullets side-list">
+        <li>MS Office Suite</li>
+        <li>Canva</li>
+        <li>Microsoft Power BI</li>
+        <li>SQL</li>
+        <li>Zimyo (HRMS)</li>
+        <li>Background Verification Process</li>
+      </ul>
+    </div>
+
+    <div class="side-block">
+      <div class="side-head">SOFT SKILLS</div>
+      <ul class="bullets side-list">
+        <li>Proactive thinker</li>
+        <li>Teamwork</li>
+        <li>Time Management</li>
+        <li>Decision making</li>
+        <li>Effective Communication</li>
+      </ul>
+    </div>
+
+    <div class="side-block">
+      <div class="side-head">CERTIFICATIONS</div>
+      <ul class="bullets side-list">
+        <li>Digital Marketing</li>
+      </ul>
+    </div>
+
+    <div class="side-block">
+      <div class="side-head">LANGUAGES</div>
+      <ul class="bullets side-list">
+        <li>Malayalam</li>
+        <li>Hindi</li>
+        <li>Tamil</li>
+        <li>English</li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="divider"></div>
+
+  <!-- ==================================================== main content -->
+  <div class="main">
+
+    <div class="section">
+      <div class="sec-head">PROFILE</div>
+      <p class="profile-text">
+        Human Resource Management student with strong communication, interpersonal, and
+        organizational skills. Passionate about working with people, maintaining positive
+        workplace relationships, and supporting organizational growth. Adaptable, responsible,
+        and eager to learn, seeking an opportunity to gain practical exposure and grow
+        professionally in the HR field.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="sec-head">EDUCATION</div>
+      <div class="edu-item">
+        <div class="entry">
+          <span class="title">MBA &amp; PGPM</span>
+          <span class="when">2025 - 2027</span>
+        </div>
+        <div class="entry">
+          <span class="sub">ISSM Business School</span>
+          <span class="when" style="font-weight:400">(pursuing)</span>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="entry">
+          <span class="title">Bachelor of Commerce</span>
+          <span class="when">2022 - 2025</span>
+        </div>
+        <div class="entry">
+          <span class="sub">S.S.S Shasun Jain College</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-head">ACHIEVEMENTS</div>
+      <ul class="bullets">
+        <li>Served as NHRD Secretary and coordinated student activities, events, and team
+            collaboration initiatives.</li>
+        <li>Actively participated in workshops, cultural events, and academic activities.</li>
+        <li>Achieved first place in badminton tournament.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="sec-head">PROJECT</div>
+      <div class="entry"><span class="title">AIM project</span></div>
+      <ul class="bullets">
+        <li>Conducted mock interviews and guided thousands of students from various colleges on
+            interview preparation, communication skills, and career readiness.</li>
+        <li>Helped students improve confidence, resume presentation, and overall employability
+            through mentoring.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="sec-head">INTERNSHIP</div>
+
+      <div class="intern-entry">
+        <div class="entry">
+          <span class="title">Intellismith - HR Intern</span>
+          <span class="when">June - July 2026</span>
+        </div>
+        <ul class="bullets">
+          <li>Supported HR operations, onboarding, and employee documentation.</li>
+          <li>Managed employee data, records, and HR trackers using Zimyo.</li>
+          <li>Researched IBM AskHR and watsonx Orchestrate to understand AI and Agentic AI
+              applications in HR.</li>
+        </ul>
+      </div>
+
+      <div class="intern-entry">
+        <div class="entry">
+          <span class="title">T.S Sivaramakrishnan &amp; co - Auditing</span>
+        </div>
+        <ul class="bullets">
+          <li>Assisted in reviewing financial statements, vouchers, and supporting documents to
+              ensure accuracy and compliance with audit requirements.</li>
+          <li>Supported the audit team in preparing working papers, drafting observations, and
+              evaluating internal control systems.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
